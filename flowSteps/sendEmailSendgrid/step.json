@@ -9,7 +9,9 @@
       "name": "from",
       "type": "text",
       "required": true,
+      "description":"The 'From' email address used to deliver the message. This address should be a verified sender in your Twilio SendGrid account.",
       "options": {
+        "validation": "email",
         "allowContextSelector": "true"
       }
     },
@@ -18,6 +20,7 @@
       "name": "to",
       "type": "text",
       "required": true,
+      "description":"It is used to place the recipient of the mail",
       "options": {
         "validation": "email",
         "allowContextSelector": "true"
@@ -28,6 +31,7 @@
       "name": "subject",
       "type": "text",
       "required": true,
+      "description": "The global or 'message level' subject of your email.",
       "options": {
         "allowContextSelector": "true"
       }
@@ -36,6 +40,7 @@
       "label": "Message",
       "name": "message",
       "type": "text",
+      "description": "The message which will be sent.",
       "required": true,
       "options": {
         "allowContextSelector": "true",
