@@ -1,99 +1,3 @@
----
-title: SendGrid endpoint
-keywords:
-last_updated: March 20, 2023
-tags: []
-summary: "Detailed description of the API of the SendGrid endpoint."
----
-
-## Overview
-
-SendGrid is an email delivery and marketing platform that allows businesses to send and manage their email campaigns.
-
-Some features are:
-
-- Shortcuts for the REST API
-- Helpers to convert date times
-
-In most cases you will be using the provided shortcuts to access the API. For example, you could use the REST API
-directly by doing an HTTP request like this:
-
-```js
-var res = app.endpoints.sendgrid.get('/ips/pools');
-```
-
-However, you probably want to use the shortcuts:
-
-```js
-var res = app.endpoints.sendgrid.user.profile.get()
-```
-
-These shortcuts are based on the [SendGrid REST API](https://docs.sendgrid.com/).
-You can see more information about that in the [shortcuts section](#shortcuts).
-
-## Quick start
-
-One common integration case with SendGrid is sent an email. For example:
-
-```js
-var res = app.endpoints.sendgrid.mail.send.post({
-  "personalizations": [
-    {
-      "to": [
-        {
-          "email": "test@slingr.io"
-        }
-      ]
-    }
-  ],
-  "from": {
-    "email": "test@slingr.io"
-  },
-  "subject": "Hello, World!",
-  "content": [
-    {
-      "type": "text/plain",
-      "value": "Heya!"
-    }
-  ]
-});
-```
-
-## Configuration
-
-- Check the setting page to create a new API key: [Settings page](https://app.sendgrid.com/settings/api_keys)
-
-### API key
-API to access to SendGrid service
-
-## Javascript API
-
-The Javascript API of the SendGrid endpoint has three pieces:
-
-- **HTTP request**: this allows to make regular HTTP requests. In case of SendGrid `POST` to the API.
-- **Shortcuts**: these are helpers to make HTTP request to the API in a more convenient way.
-- **Date helpers**: allow to easily convert dates from/to SendGrid, so they can be used easily in SLINGR.
-
-### HTTP requests
-
-You can make `POST` request to the [SendGrid API](https://docs.sendgrid.com/for-developers/sending-email/api-getting-started) like this:
-
-```js
-var response = app.endpoints.sendgrid.post('/mail/send', {...});
-```
-
-Please take a look at the documentation of the [HTTP endpoint]({{site.baseurl}}/endpoints_http.html#javascript-api)
-for more information.
-
-### Shortcuts
-
-Instead of having to use the generic HTTP methods, you can make use of the shortcuts provided in the endpoint. These
-shortcuts follow these rules:
-
-- **Path sections get converted to namespaces**: for example `~/mail/send`
-  it is converted to `app.endpoints.sendgrid.mail.send.post({...})`.
-
-
 # Javascript API
 
 The Javascript API of the sendgrid endpoint has three pieces:
@@ -722,10 +626,10 @@ app.endpoints.sendgrid.accessSettings.whitelist.delete()
 ---
 
 </details>
-
+    
 ## Flow Step
 
-As an alternative option to using scripts, you can make use of Flows and Flow Steps specifically created for the endpoint:
+As an alternative option to using scripts, you can make use of Flows and Flow Steps specifically created for the endpoint: 
 <details>
     <summary>Click here to see the Flow Steps</summary>
 
@@ -927,80 +831,6 @@ For more information about how shortcuts or flow steps works, and how they are g
 
 <details>
     <summary>Click here to see the Customs Flow Steps</summary>
-
-### Send email
-
-Send a email via SendGrid.
-
-<h3>Inputs</h3>
-
-<table>
-    <thead>
-    <tr>
-        <th>Label</th>
-        <th>Type</th>
-        <th>Required</th>
-        <th>Default</th>
-        <th>Visibility</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-          <td>From</td>
-          <td>email</td>
-          <td>yes</td>
-          <td> - </td>
-          <td>Always</td>
-          <td>The 'From' email address used to deliver the message. This address should be a verified sender in your Twilio SendGrid account.</td>
-      </tr>
-      <tr>
-          <td>To</td>
-          <td>email</td>
-          <td>yes</td>
-          <td> - </td>
-          <td>Always</td>
-          <td>It is used to place the recipient of the mail</td>
-      </tr>
-      <tr>
-          <td>Subject</td>
-          <td>text</td>
-          <td>yes</td>
-          <td> - </td>
-          <td>Always</td>
-          <td>The global or 'message level' subject of your email.</td>
-      </tr>
-      <tr>
-          <td>Message</td>
-          <td>text</td>
-          <td>yes</td>
-          <td> - </td>
-          <td>Always</td>
-          <td>The message which will be sent</td>
-      </tr>
-    </tbody>
-</table>
-
-<h3>Outputs</h3>
-
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>response</td>
-        <td>object</td>
-        <td>
-            Object resulting from the response to the endpoint call.
-        </td>
-    </tr>
-    </tbody>
-</table>
 
 <br>
 
