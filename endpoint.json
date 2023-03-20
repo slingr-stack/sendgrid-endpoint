@@ -93,7 +93,7 @@
   ],
   "flowSteps": [
     "apiCallSendgrid",
-    "sendEmailSengrid"
+    "sendEmailSendgrid"
   ],
   "configuration": [
     {

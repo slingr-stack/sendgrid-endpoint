@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 /**
  * <p>SendGrid endpoint
  * <p>
- * <p>Rewrited by hpacini on 17/11/17.
+ * <p>Writed by agreggio-slingr on 20/3/23.
  */
 @SlingrEndpoint(name = "sendgrid", functionPrefix = "_")
 public class SendgridEndpoint extends HttpEndpoint {

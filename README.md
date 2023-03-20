@@ -10,7 +10,7 @@ summary: "Detailed description of the API of the SendGrid endpoint."
 
 SendGrid is an email delivery and marketing platform that allows businesses to send and manage their email campaigns.
 
-Some of the features are:
+Some features are:
 
 - Shortcuts for the REST API
 - Helpers to convert date times
@@ -22,7 +22,7 @@ directly by doing an HTTP request like this:
 var res = app.endpoints.sendgrid.get('/ips/pools');
 ```
 
-However you probably want to use the shortcuts:
+However, you probably want to use the shortcuts:
 
 ```js
 var res = app.endpoints.sendgrid.user.profile.get()
@@ -33,7 +33,7 @@ You can see more information about that in the [shortcuts section](#shortcuts).
 
 ## Quick start
 
-One common integration case with SendGrid is send an email. For example:
+One common integration case with SendGrid is sent an email. For example:
 
 ```js
 var res = app.endpoints.sendgrid.mail.send.post({
@@ -72,7 +72,7 @@ The Javascript API of the SendGrid endpoint has three pieces:
 
 - **HTTP request**: this allows to make regular HTTP requests. In case of SendGrid `POST` to the API.
 - **Shortcuts**: these are helpers to make HTTP request to the API in a more convenient way.
-- **Date helpers**: allow to easily convert dates from/to SendGrid so they can be used easily in SLINGR.
+- **Date helpers**: allow to easily convert dates from/to SendGrid, so they can be used easily in SLINGR.
 
 ### HTTP requests
 
